@@ -32,7 +32,7 @@ body {
   display: flex;
 }
 
-.header-text-editor a { 
+.header-text-editor button { 
   margin-right: 0.4em; 
 }
 

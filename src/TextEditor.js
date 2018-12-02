@@ -19,18 +19,18 @@ class TextEditor extends Component {
     console.log(this.props);
     this.state = { 
       code: "",
-      open: true,
+      open: false,
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal (){
-    this.setState({ open: true })
+  openModal(e){
+    this.setState({ open: true });
   }
 
-  closeModal () {
-    this.setState({ open: false })
+  closeModal(e) {
+    this.setState({ open: false });
   }
 
   render() {
@@ -41,10 +41,10 @@ class TextEditor extends Component {
             closeOnDocumentClick
             onClose={this.closeModal}
           >
-            <div className="modal">
-              <a className="close" href="/#" onClick={this.closeModal}>
+            <div className="text-editor-modal">
+              <button className="close" onClick={this.closeModal}>
                 &times;
-              </a>
+              </button>
               <div>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae magni
               omnis delectus nemo, maxime molestiae dolorem numquam mollitia, voluptate
@@ -57,8 +57,8 @@ class TextEditor extends Component {
             <input type="text" class="form-control" placeholder="Put text title here..." />
           </div>
           <div className="header-text-editor text-editor-child">
-            <a className="btn btn-primary" href="/#">Change Password</a>
-            <a className="btn btn-danger" href="/#">Delete</a>
+            <button className="btn btn-primary" onClick={this.openModal}>Change Password</button>
+            <button className="btn btn-danger" onClick={this.openModal}>Delete</button>
           </div>
           <div className="text-text-editor text-editor-child">
             <AceEditor
