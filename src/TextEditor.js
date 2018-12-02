@@ -36,12 +36,29 @@ class TextEditor extends Component {
   render() {
     return (
         <div className="text-editor">
+          <Popup
+            open={this.state.open}
+            closeOnDocumentClick
+            onClose={this.closeModal}
+          >
+            <div className="modal">
+              <a className="close" href="/#" onClick={this.closeModal}>
+                &times;
+              </a>
+              <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae magni
+              omnis delectus nemo, maxime molestiae dolorem numquam mollitia, voluptate
+              ea, accusamus excepturi deleniti ratione sapiente! Laudantium, aperiam
+              doloribus. Odit, aut.
+              </div>
+            </div>
+          </Popup>
           <div className="input-group mb-3 title-text-editor text-editor-child">
             <input type="text" class="form-control" placeholder="Put text title here..." />
           </div>
           <div className="header-text-editor text-editor-child">
             <a className="btn btn-primary" href="/#">Change Password</a>
-            <a className="btn btn-primary" href="/#">Delete</a>
+            <a className="btn btn-danger" href="/#">Delete</a>
           </div>
           <div className="text-text-editor text-editor-child">
             <AceEditor
